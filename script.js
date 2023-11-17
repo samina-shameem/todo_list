@@ -31,13 +31,22 @@ function editTask(index) {
     updateTodoList();
 }
 
-function saveTask(index) {     
-    if (tasks[index].description.trim() !== "") {
-        tasks[index].editable = false;
+function saveTask(index) {
+    let task_id = "task-number-" + index;
+    let newTaskDescription = document.getElementById(task_id).value;
+    
+    if (newTaskDescription.trim() !== "") {
+        tasks[index].description = newTaskDescription;
+        tasks[index].editable = false;        
         updateTodoList();
     } else {
         alert("No empty string is allowed");
     }     
+}
+function cancelTask(index) {     
+    tasks[index].editable = false;
+    updateTodoList();
+ 
 }
 
 function deleteTask(index) {
@@ -64,8 +73,9 @@ function updateTodoList() {
             
             ${task.editable ?
                 `<div class="items">
-                    <input type="text" class="task-ds" value="${task.description}" onchange="tasks[${index}].description = this.value">
+                    <input type="text" class="task-ds" id="task-number-${index}" value="${task.description}" >
                     <button onclick="saveTask(${index})">Save</button>
+                    <button onclick="cancelTask(${index})">Cancel</button>
                 </div>` :
                 `<div class="items">
                     <label class="task-ds">${task.description}</label>
@@ -89,8 +99,9 @@ function updateDoneList() {
             
         ${doneTask.editable ?
             `<div class="items">
-                <input type="text" class="task-ds" value="${doneTask.description}" onchange="doneTasks[${index}].description = this.value">
+                <input type="text" class="task-ds" id="done-task-number-${index}" value="${doneTask.description}" >
                 <button onclick="saveDoneTask(${index})">Save</button>
+                <button onclick="cancelDoneTask(${index})">Cancel</button>
             </div>` :
             `<div class="items">
                 <label class="task-ds">${doneTask.description}</label>
@@ -108,12 +119,20 @@ function editDoneTask(index) {
     updateDoneList();
 }
 function saveDoneTask(index) {
-    if (doneTasks[index].description.trim() !== "") {
+    let doneTaskId = "done-task-number-" + index;
+    let newTaskDescription = document.getElementById(doneTaskId).value;
+    
+    if (newTaskDescription.trim() !== "") {
+        doneTasks[index].description = newTaskDescription;
         doneTasks[index].editable = false;
         updateDoneList();
     } else {
         alert("No empty string is allowed");
     }      
+}
+function cancelDoneTask(index) {     
+    doneTasks[index].editable = false;
+    updateDoneList(); 
 }
 function deleteDoneTask(index) {
     if (confirm("This will remove the task from Done list. Are you sure ?")){
