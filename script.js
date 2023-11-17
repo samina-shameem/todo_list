@@ -17,10 +17,12 @@ function addTask() {
 }
 
 function resetTask() {
-    tasks = [];
-    doneTasks = [];
-    updateTodoList();
-    updateDoneList();
+    if (confirm("This will remove all tasks. Are you sure ?")){
+        tasks = [];
+        doneTasks = [];
+        updateTodoList();
+        updateDoneList();    
+    }
 }
 
 
@@ -39,8 +41,10 @@ function saveTask(index) {
 }
 
 function deleteTask(index) {
-    tasks.splice(index, 1);
-    updateTodoList();
+    if (confirm("This will remove the task from To Do list. Are you sure ?")){
+        tasks.splice(index, 1);
+        updateTodoList();
+    }
 }
 
 function markAsDone(index) {
@@ -112,8 +116,10 @@ function saveDoneTask(index) {
     }      
 }
 function deleteDoneTask(index) {
-    doneTasks.splice(index, 1);
-    updateDoneList();
+    if (confirm("This will remove the task from Done list. Are you sure ?")){
+        doneTasks.splice(index, 1);
+        updateDoneList();
+    }
 }
 
 // Update lists on initial load
