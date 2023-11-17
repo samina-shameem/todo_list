@@ -11,6 +11,8 @@ function addTask() {
         tasks.push({ description: taskDescription, editable: false });
         taskInput.value = "";
         updateTodoList();
+    } else {
+        alert("No empty string is allowed");
     }
 }
 
@@ -30,8 +32,10 @@ function editTask(index) {
 function saveTask(index) {     
     if (tasks[index].description.trim() !== "") {
         tasks[index].editable = false;
-    } 
-    updateTodoList();
+        updateTodoList();
+    } else {
+        alert("No empty string is allowed");
+    }     
 }
 
 function deleteTask(index) {
@@ -102,8 +106,10 @@ function editDoneTask(index) {
 function saveDoneTask(index) {
     if (doneTasks[index].description.trim() !== "") {
         doneTasks[index].editable = false;
-    }
-    updateDoneList();
+        updateDoneList();
+    } else {
+        alert("No empty string is allowed");
+    }      
 }
 function deleteDoneTask(index) {
     doneTasks.splice(index, 1);
