@@ -27,8 +27,10 @@ function editTask(index) {
     updateTodoList();
 }
 
-function saveTask(index) {
-    tasks[index].editable = false;
+function saveTask(index) {     
+    if (tasks[index].description.trim() !== "") {
+        tasks[index].editable = false;
+    } 
     updateTodoList();
 }
 
@@ -98,7 +100,9 @@ function editDoneTask(index) {
     updateDoneList();
 }
 function saveDoneTask(index) {
-    doneTasks[index].editable = false;
+    if (doneTasks[index].description.trim() !== "") {
+        doneTasks[index].editable = false;
+    }
     updateDoneList();
 }
 function deleteDoneTask(index) {
