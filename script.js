@@ -1,7 +1,7 @@
-let tasks = [{ description: "task1-dfeggks asd sdf", editable: false },{ description: "task2-abc", editable: false }];
-let doneTasks = [{ description: "task1-done", editable: false },{ description: "task2-done", editable: false }];
-// let tasks = [];
-// let doneTasks = [];
+//let tasks = [{ description: "task1-dfeggks asd sdf", editable: false },{ description: "task2-abc", editable: false }];
+//let doneTasks = [{ description: "task1-done", editable: false },{ description: "task2-done", editable: false }];
+ let tasks = [];
+ let doneTasks = [];
 
 function addTask() {
     const taskInput = document.getElementById('taskInput');
