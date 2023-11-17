@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Application</title>
+    <link rel="stylesheet" href="css/style.css"> 
+</head>
+
+<body>
+
+
+
+    <div id="main-container">
+        
+        <div id="addTask" class="addTask-container">
+            <input type="text" size="30" id="taskInput" placeholder="Enter task description">
+            <!-- <textarea rows="4" cols="50" placeholder="Your wrapped content here"></textarea> -->
+            <button id="btn-addTask" onclick="addTask()">Add Task</button>
+        </div>
+
+        
+
+        <div class="todo-container">
+            <h2>To do</h2>
+
+            <div id="todoList">
+                <!-- Tasks will be dynamically added here using JavaScript -->
+            </div>
+        </div>
+        <!-- Part 3: Done list -->
+        <div class="done-container">
+            <h2>Completed</h2>
+
+            <div id="doneList">
+                <!-- Completed tasks will be dynamically added here using JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+
+</html>
