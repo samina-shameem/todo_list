@@ -73,28 +73,34 @@ function updateDoneList() {
     const doneList = document.getElementById('doneList');
     doneList.innerHTML = "";
 
-    doneTasks.forEach((task, index) => {
+    doneTasks.forEach((doneTask, index) => {
         const taskElement = document.createElement('div');
         taskElement.innerHTML = `
-        <div class="items">
-            <label class="task-ds">${task.description}</label>
-            <button onclick="editDoneTask(${index})">Edit</button>
-            <button onclick="deleteDoneTask(${index})">Delete</button>
-        </div>    
-        `;
+            
+        ${doneTask.editable ?
+            `<div class="items">
+                <input type="text" class="task-ds" value="${doneTask.description}" onchange="doneTasks[${index}].description = this.value">
+                <button onclick="saveDoneTask(${index})">Save</button>
+            </div>` :
+            `<div class="items">
+                <label class="task-ds">${doneTask.description}</label>
+                <button onclick="editDoneTask(${index})">Edit</button>
+                <button onclick="deleteDoneTask(${index})">Delete</button>
+            </div>` 
+        }
+    `;
         doneList.appendChild(taskElement);
     });
 }
 
 function editDoneTask(index) {
-    const task = doneTasks[index];
-    const newDescription = prompt('Edit description:', task.description);
-    if (newDescription !== null) {
-        doneTasks[index].description = newDescription;
-        updateDoneList();
-    }
+    doneTasks[index].editable = true;
+    updateDoneList();
 }
-
+function saveDoneTask(index) {
+    doneTasks[index].editable = false;
+    updateDoneList();
+}
 function deleteDoneTask(index) {
     doneTasks.splice(index, 1);
     updateDoneList();
