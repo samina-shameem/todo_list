@@ -61,12 +61,14 @@ h2{
     /* margin: 5px; */
 }
 .items {    
+
     display: flex;
     justify-items: left;
     column-gap: 10px;  
     /* margin: 5px; */
     /*border: 1px solid green; */   
     /* padding: 5px; */
+    align-items: flex-start;
 } 
 .items>:nth-child(2) {
     /* margin-left: auto;     */
