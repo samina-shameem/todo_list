@@ -15,13 +15,15 @@
     <div id="main-container">
         
         <!--Part 1: enter task-->
-
         <div id="addTask" class="addTask-container">
-            <input type="text" size="30" id="taskInput" placeholder="Enter task description">
+            <input type="text" size="30" id="taskInput" placeholder="Enter task description" oninput="taskManager.clearMsg('addTask-msg')">
             <!-- <textarea rows="4" cols="50" placeholder="Your wrapped content here"></textarea> -->
-            <button id="btn-addTask" onclick="addTask()">Add Task</button>
-            <button id="btn-resetTask" onclick="resetTask()">Reset</button>
+            <button id="btn-addTask" onclick="taskManager.addTask()">Add Task</button>
+            <button id="btn-resetTask" onclick="taskManager.resetTask()">Reset</button>
         </div>
+        <div id="addTask-msg" class="msg">
+            <!-- Place holder for error msg -->
+        </div>    
 
         
         <!--Part 2: to-do  list-->
